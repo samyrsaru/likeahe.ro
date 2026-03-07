@@ -8,17 +8,6 @@ function setTheme(theme) {
   const effectiveTheme = theme === 'system' ? getSystemTheme() : theme;
   document.documentElement.setAttribute('data-theme', effectiveTheme);
   document.documentElement.setAttribute('data-theme-mode', theme);
-  
-  const meta = document.querySelector('meta[name="theme-color"]');
-  if (!meta) {
-    const newMeta = document.createElement('meta');
-    newMeta.name = 'theme-color';
-    document.head.appendChild(newMeta);
-  }
-  document.querySelector('meta[name="theme-color"]').setAttribute(
-    'content', effectiveTheme === 'dark' ? '#111' : '#fafafa'
-  );
-  
   localStorage.setItem('theme', theme);
 }
 
